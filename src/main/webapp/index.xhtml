@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+	  	xmlns:h="http://java.sun.com/jsf/html"
+	  	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>Index - Calculadora</title>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	</h:head>
+	<h:body>
+	
+	<div class="navbar navbar-default navbar-static-top">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="index.xhtml"><span>Calculadora</span></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li >
+	          <a href="sobre.xhtml">Sobre</a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="container">
+		<h:form id="formForm">
+			<div class="jumbotron">
+				<label for="txtTamanho">Tamanho do Arquivo</label>
+				<div class="form-group form-inline">
+					<h:inputText styleClass="form-control" name="tamanho" id="txtTamanho" value="#{calculadoraMB.tamanho}" />
+					<h:message for="txtTamanho" />
+					<br/>
+					<br/>
+					<p:selectOneMenu id="sizeMenu" value="#{calculadoraMB.sizeType}" style="width:150px">
+			            <f:selectItem itemLabel="Kilobyte" itemValue="1" />
+			            <f:selectItem itemLabel="Megabyte" itemValue="2" />
+			            <f:selectItem itemLabel="Gigabyte" itemValue="3" />
+			            <f:selectItem itemLabel="Terabyte" itemValue="4" />
+			        </p:selectOneMenu>
+				</div>
+				
+				<label for="txtVelocidade">Velocidade da Internet</label>
+				<div class="form-group form-inline">
+					
+					<h:inputText styleClass="form-control" name="velocidade" id="txtVelocidade" value="#{calculadoraMB.velocidade}" />
+					<h:message for="txtVelocidade" />
+					<br/>
+					<br/>
+					<p:selectOneMenu styleClass="speedMenu" panelStyleClass="panel" id="form-control" value="#{calculadoraMB.speedType}" style="width:150px">
+			            <f:selectItem itemLabel="KB/s" itemValue="1" />
+			            <f:selectItem itemLabel="MB/s" itemValue="2" />
+			            <f:selectItem itemLabel="GB/s" itemValue="3" />
+			        </p:selectOneMenu>
+					
+				</div>
+				
+				<div class="form-group">
+					<label for="txtTempo">Tempo Estimado</label>
+					<h:inputText styleClass="form-control" name="tempo" id="txtTempo" disabled="true" value="#{calculadoraMB.tempo}" />
+					<h:message for="txtTempo" />
+				</div>
+				
+				<div class="form-group">
+					<h:commandButton styleClass="btn btn-default navbar-btn btn-primary " value="Calcular" action="#{calculadoraMB.calcular}"/>
+				</div>
+			</div>
+		</h:form>
+		
+	</div>
+	
+
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>		
+</h:body>
+</html>
